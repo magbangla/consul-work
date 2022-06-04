@@ -1,0 +1,16 @@
+{
+	"bootstrap_expect": 3,
+	"server": true,
+	"node_name": "consul_s1",
+	"datacenter": "DC1",
+	"data_dir": "/consul/data",
+	"encrypt": "862MOUel/po03m0XXKSegHqwWYUHS580rP39MDUaO5w=",
+	"log_level": "INFO",
+	"leave_on_terminate": false,
+	"skip_leave_on_interrupt": true,
+	"rejoin_after_leave": true,
+	"addresses": {
+        "http" : "0.0.0.0"
+    }
+}
+

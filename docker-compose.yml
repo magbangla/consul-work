@@ -1,0 +1,56 @@
+version: '2'
+services:
+  consul_s1:
+    image: consul:1.10
+    container_name: consul_s1
+    command: ["agent","-server"]
+    volumes:
+      - /Users/martial/consul-work/data/consul_s1-data:/consul/data
+      - /Users/martial/consul-work/configs/consul_s1:/consul/config
+    networks:
+      consul-net:
+        ipv4_address: 172.18.0.10
+  consul_s2:
+    image: consul:1.10
+    container_name: consul_s2
+    command: ["agent","-server"]
+    volumes:
+      - /Users/martial/consul-work/data/consul_s2-data:/consul/data
+      - /Users/martial/consul-work/configs/consul_s2:/consul/config
+    networks:
+      consul-net:
+        ipv4_address: 172.18.0.11
+  consul_s3:
+    image: consul:1.10
+    container_name: consul_s3
+    command: ["agent","-server"]
+    volumes:
+      - /Users/martial/consul-work/data/consul_s3-data:/consul/data
+      - /Users/martial/consul-work/configs/consul_s3:/consul/config
+    networks:
+      consul-net:
+        ipv4_address: 172.18.0.12
+  consul_c:
+    image: consul:1.10
+    container_name: consul_c
+    command: ["agent","-server"]
+    volumes:
+      - /Users/martial/consul-work/data/consul_c-data:/consul/data
+      - /Users/martial/consul-work/configs/consul_c:/consul/config
+    ports:
+      - "8500:8500"
+    networks:
+      consul-net:
+        ipv4_address: 172.18.0.13
+
+networks:
+  # consul-net:
+  #   driver: bridge
+  #   name: consul-net
+  #   ipam:
+  #     config:
+  #       - subnet: 172.18.0.0/24
+  #         gateway: 172.18.0.1
+  consul-net:
+    name: consul-net
+    external: true

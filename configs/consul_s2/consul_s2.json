@@ -1,0 +1,14 @@
+{
+	"bootstrap_expect": 3,
+	"bind_addr": "172.18.0.11",
+	"node_name": "consul_s2",
+	"server": true,
+	"datacenter": "DC1",
+	"data_dir": "/consul/data",
+	"encrypt": "862MOUel/po03m0XXKSegHqwWYUHS580rP39MDUaO5w=",
+	"log_level": "INFO",
+	"addresses": {
+        "http" : "0.0.0.0"
+    },
+    "retry_join": ["consul_s1","consul_s2","consul_s3"]
+}
